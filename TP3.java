@@ -23,7 +23,7 @@ public class TP3 {
 
 	public static void exo1() {
 		System.out.println("Tableau uni-dimenssionnel à 4 valeurs :");
-		int[] array = promptIntArray();
+		int[] array = promptIntArray(4);
 
 		printIntArray(array);
 
@@ -31,16 +31,41 @@ public class TP3 {
 		int[][] bigArray = new int[3][4];
 		for (int i = 0; i < bigArray.length; i++) {
 			System.out.println("Ligne d'indice " + i + " :");
-			bigArray[i] = promptIntArray();
+			bigArray[i] = promptIntArray(4);
 		}
 		for (int i = 0; i < bigArray.length; i++) {
 			printIntArray(bigArray[i]);
 		}
 
 	}
+	
+	public static void moyennes(){
+		System.out.println("Quel est le nombre de lignes de votre tableau ?");
+		int l = scan.nextInt();
+		System.out.println("Quel est le nombre de colonnes de votre tableau ?");
+		int c = scan.nextInt();
+		int[][] array = new int[l][c];
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("Ligne d'indice " + i + " :");
+			array[i] = promptIntArray(c);
+		}
+		System.out.println("La moyenne de votre tableau est : " + meanIntArray(array));
+		
+	}
+	
+	public static int meanIntArray(int[][] array){
+		int result = 0;
+		for (int i = 0; i < array.length; i++){
+			for (int t = 0; t < array[i].length; t++){
+				result += array[i][t];
+			}
+		}
+		result = result / (array.length * array[1].length);
+		return result;
+	}
 
-	public static int[] promptIntArray() {
-		int[] array = new int[4];
+	public static int[] promptIntArray(int arrayLength) {
+		int[] array = new int[arrayLength];
 
 		for (int i = 0; i < array.length; i++) {
 			System.out.println("Nombre d'indice " + i + " ?");
