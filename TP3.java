@@ -4,7 +4,20 @@ public class TP3 {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		exo1();
+		System.out.println("Que souhaitez-vous faire ?");
+		System.out.println("1. Prompt et Print de tableaux");
+		System.out.println("2. Moyenne de tableaux");
+		int choix = scan.nextInt();
+		switch (choix) {
+		case 1:
+			exo1();
+			break;
+		case 2:
+			moyennes();
+			break;
+		default:
+			System.out.println("Veuillez entrer un choix valide.");
+		}
 
 	}
 
