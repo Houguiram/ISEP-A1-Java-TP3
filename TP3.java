@@ -38,8 +38,8 @@ public class TP3 {
 		}
 
 	}
-	
-	public static void moyennes(){
+
+	public static void moyennes() {
 		System.out.println("Quel est le nombre de lignes de votre tableau ?");
 		int l = scan.nextInt();
 		System.out.println("Quel est le nombre de colonnes de votre tableau ?");
@@ -50,13 +50,30 @@ public class TP3 {
 			array[i] = promptIntArray(c);
 		}
 		System.out.println("La moyenne de votre tableau est : " + meanIntArray(array));
-		
+		int found = 0;
+		int indice = -1;
+		for (int i = 0; i < array.length; i++) {
+			for (int k = 0; k < array[1].length; k++) {
+				if (found == 0) {
+					indice++;
+					if (array[i][k] == meanIntArray(array)) {
+						found = 1;
+					}
+				}
+			}
+		}
+		if (indice < 0) {
+			System.out.println("Pas de valeur égale à la moyenne.");
+		} else {
+			System.out.println("La première valeur égale à la moyenne a l'indice " + indice + ".");
+		}
+
 	}
-	
-	public static int meanIntArray(int[][] array){
+
+	public static int meanIntArray(int[][] array) {
 		int result = 0;
-		for (int i = 0; i < array.length; i++){
-			for (int t = 0; t < array[i].length; t++){
+		for (int i = 0; i < array.length; i++) {
+			for (int t = 0; t < array[i].length; t++) {
 				result += array[i][t];
 			}
 		}
